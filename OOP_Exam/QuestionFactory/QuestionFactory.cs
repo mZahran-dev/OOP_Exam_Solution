@@ -29,7 +29,7 @@ namespace OOP_Exam.QuestionFactory
             while (true)
             {
                 Console.Write("Enter Question Mark: ");
-                if (double.TryParse(Console.ReadLine(), out mark) && mark >= 0)
+                if (double.TryParse(Console.ReadLine(), out mark) && mark > 0)
                 {
                     break;
                 }
@@ -78,7 +78,7 @@ namespace OOP_Exam.QuestionFactory
             while (true)
             {
                 Console.Write("Enter Question Mark: ");
-                if (double.TryParse(Console.ReadLine(), out mark) && mark >= 0)
+                if (double.TryParse(Console.ReadLine(), out mark) && mark > 0)
                 {
                     break;
                 }
