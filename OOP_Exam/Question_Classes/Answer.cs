@@ -32,5 +32,12 @@ namespace OOP_Exam.Question_Classes
         }
         #endregion
 
+        #region Methods
+        public override string ToString()
+        {
+            return $"{AnswerText}";
+        }
+        #endregion
+
     }
 }
