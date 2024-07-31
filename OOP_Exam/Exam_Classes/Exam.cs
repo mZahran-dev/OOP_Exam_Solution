@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_Exam.Question_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace OOP_Exam.Exam_Classes
         #region Properites
         private int examTime;
         private int numberOfQuestion;
-        //private List<Question>? questions;
+        private List<Question>? questions;
 
         public int ExamTime
         {
@@ -23,11 +24,11 @@ namespace OOP_Exam.Exam_Classes
             get { return numberOfQuestion; }
             set { numberOfQuestion = value; }
         }
-        //public List<Question>? Questions
-        //{
-        //    get { return questions; }
-        //    set { questions = value; }
-        //}
+        public List<Question>? Questions
+        {
+            get { return questions; }
+            set { questions = value; }
+        }
 
 
         #endregion
@@ -48,7 +49,7 @@ namespace OOP_Exam.Exam_Classes
         {
 
         }
-        public void AddQuestion()
+        public void AddQuestion(Question question)
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_Exam.Question_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Exam.QuestionFactory
 {
-    internal class QuestionFactory
+    internal static class QuestionFactory
     {
         #region Methods
         public static TrueOrFalseQuestion CreateTrueFalseQuestion()

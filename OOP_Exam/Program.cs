@@ -1,4 +1,7 @@
-﻿namespace OOP_Exam
+﻿using OOP_Exam.Exam_Classes;
+using OOP_Exam.SubjectClass;
+
+namespace OOP_Exam
 {
     internal class Program
     {
@@ -58,7 +61,7 @@
                 for (int i = 0; i < noQuestions; i++)
                 {
                     Console.Clear();
-                    var answer = QuestionFactory.CreateMcqQuestion();
+                    var answer = QuestionFactory.QuestionFactory.CreateMcqQuestion();
                     practicalExam.AddQuestion(answer);
                 }
                 subject?.CreateExam(practicalExam);
@@ -75,13 +78,13 @@
                     if (questionType == 1)
                     {
                         Console.Clear();
-                        var answer = QuestionFactory.CreateMcqQuestion();
+                        var answer = QuestionFactory.QuestionFactory.CreateMcqQuestion();
                         finalExam.AddQuestion(answer);
                     }
                     else if (questionType == 2)
                     {
                         Console.Clear();
-                        var answer = QuestionFactory.CreateTrueFalseQuestion();
+                        var answer = QuestionFactory.QuestionFactory.CreateTrueFalseQuestion();
                         finalExam.AddQuestion(answer);
                     }
                 }
