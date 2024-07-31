@@ -12,8 +12,12 @@ namespace OOP_Exam.Exam_Classes
         public FinalExam(int numberOfQuestion, int examTime) : base(numberOfQuestion, examTime)
         {
         }
-
         #endregion
+
+        public override void ShowExam()
+        {
+
+        }
 
     }
 }

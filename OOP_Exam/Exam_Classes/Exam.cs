@@ -11,7 +11,7 @@ namespace OOP_Exam.Exam_Classes
         #region Properites
         private int examTime;
         private int numberOfQuestion;
-        private List<Question>? questions;
+        //private List<Question>? questions;
 
         public int ExamTime
         {
@@ -23,11 +23,11 @@ namespace OOP_Exam.Exam_Classes
             get { return numberOfQuestion; }
             set { numberOfQuestion = value; }
         }
-        public List<Question>? Questions
-        {
-            get { return questions; }
-            set { questions = value; }
-        }
+        //public List<Question>? Questions
+        //{
+        //    get { return questions; }
+        //    set { questions = value; }
+        //}
 
 
         #endregion
@@ -42,6 +42,17 @@ namespace OOP_Exam.Exam_Classes
         }
         #endregion
 
-        
+        #region Methods
+        public abstract void ShowExam();
+        public void SolveExam()
+        {
+
+        }
+        public void AddQuestion()
+        {
+
+        }
+
+        #endregion
     }
 }
