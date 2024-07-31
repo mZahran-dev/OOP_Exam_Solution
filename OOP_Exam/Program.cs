@@ -2,6 +2,21 @@
 {
     internal class Program
     {
+        static int GetValidInput(string prompt, Func<int, bool> validate)
+        {
+            int value;
+            bool validInput;
+            do
+            {
+                Console.WriteLine(prompt);
+                validInput = int.TryParse(Console.ReadLine(), out value) && validate(value);
+                if (!validInput)
+                {
+                    Console.WriteLine("Enter a valid value.");
+                }
+            } while (!validInput);
+            return value;
+        }
         static void Main(string[] args)
         {
             bool flag = false;
