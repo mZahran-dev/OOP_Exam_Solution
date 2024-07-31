@@ -16,7 +16,16 @@ namespace OOP_Exam.Exam_Classes
         #endregion
         public override void ShowExam()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            double marks = 0;
+            for (int i = 0; i < Questions.Count; i++)
+            {
+                Console.WriteLine($"Right Answer for Question {i + 1} => {Questions[i].QuestionAnswers[i]}");
+                marks += Questions[i].QuestionMark;
+            }
+            Console.WriteLine($"Your Grade is {Grade} out of {marks}");
+            Console.WriteLine($"Time = {UserExamTime}");
+            Console.WriteLine("Thank You");
         }
 
 
