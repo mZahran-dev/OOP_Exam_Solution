@@ -33,6 +33,11 @@ namespace OOP_Exam.SubjectClass
         }
         #endregion Propeties
 
-
+        #region Methods
+        public void CreateExam(Exam exam)
+        {
+            subjectExam = exam;
+        }
+        #endregion
     }
 }
