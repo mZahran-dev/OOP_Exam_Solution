@@ -61,6 +61,13 @@ namespace OOP_Exam.Question_Classes
             return CorrectAnswers?.AnswerId == userAnswerId;
 
         }
+
+        public override string ToString()
+        {
+            return $"Question Type : {QuestionType}\nQuestion Body: {QuestionBody}\nQuestion Mark: {QuestionMark}\nQuestion Answer: {QuestionAnswers}\nCorrect Answer: {CorrectAnswers}";
+
+        }
+
         #endregion
 
     }
