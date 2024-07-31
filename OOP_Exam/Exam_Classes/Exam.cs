@@ -146,6 +146,12 @@ namespace OOP_Exam.Exam_Classes
             }
         }
 
+        public override string ToString()
+        {
+            return $"Exam Time : {ExamTime}\nNumber Of Question: {NumberOfQuestion}\nQuestinos : {questions} ";
+
+        }
+
         #endregion
     }
 }
