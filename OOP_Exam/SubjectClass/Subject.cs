@@ -38,6 +38,10 @@ namespace OOP_Exam.SubjectClass
         {
             subjectExam = exam;
         }
+        public override string ToString()
+        {
+            return $"SubjectId: {SubjectId}, SubjectName: {SubjectName}, Exam: {SubjectExam}";
+        }
         #endregion
     }
 }
