@@ -18,16 +18,20 @@ namespace OOP_Exam.Exam_Classes
         {
             Console.Clear();
             double marks = 0;
-            for (int i = 0; i < Questions.Count; i++)
+            if (Questions != null)
             {
-                Console.WriteLine($"Question {i + 1} : {Questions[i].QuestionBody}");
-                Console.WriteLine($"Your Answer => {UserAnswer[i]}");
-                Console.WriteLine($"Right Answer => {Questions[i].QuestionAnswers[i]}");
-                marks += Questions[i].QuestionMark;
+                for (int i = 0; i < Questions.Count; i++)
+                {
+                    Console.WriteLine($"Question {i + 1} : {Questions[i].QuestionBody}");
+                    Console.WriteLine($"Your Answer => {UserAnswer[i]}");
+                    Console.WriteLine($"Right Answer => {Questions[i].QuestionAnswers[i]}");
+                    marks += Questions[i].QuestionMark;
+                }
+                Console.WriteLine($"Your Grade is {Grade} out of {marks}");
+                Console.WriteLine($"Time = {UserExamTime}");
+                Console.WriteLine("Thank You");
             }
-            Console.WriteLine($"Your Grade is {Grade} out of {marks}");
-            Console.WriteLine($"Time = {UserExamTime}");
-            Console.WriteLine("Thank You");
+           
         }
 
     }
