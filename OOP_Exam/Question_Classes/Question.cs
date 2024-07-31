@@ -55,6 +55,13 @@ namespace OOP_Exam.Question_Classes
 
         #endregion
 
+        #region Methods
+        public bool EvaluteAnswer(int userAnswerId)
+        {
+            return CorrectAnswers?.AnswerId == userAnswerId;
+
+        }
+        #endregion
 
     }
 }
