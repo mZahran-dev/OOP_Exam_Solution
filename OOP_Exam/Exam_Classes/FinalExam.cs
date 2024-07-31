@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace OOP_Exam.Exam_Classes
 {
-    internal class FinalExam
+    internal class FinalExam : Exam
     {
+        #region Constructor Chaining
+        public FinalExam(int numberOfQuestion, int examTime) : base(numberOfQuestion, examTime)
+        {
+        }
+
+        #endregion
+
     }
 }

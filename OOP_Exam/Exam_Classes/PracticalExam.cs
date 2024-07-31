@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace OOP_Exam.Exam_Classes
 {
-    internal class PracticalExam
+    internal class PracticalExam : Exam
     {
+        #region Constructor Chaining
+        public PracticalExam(int numberOfQuestion, int examTime) : base(numberOfQuestion, examTime)
+        {
+        }
+        #endregion
+
     }
 }
