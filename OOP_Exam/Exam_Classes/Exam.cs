@@ -77,59 +77,72 @@ namespace OOP_Exam.Exam_Classes
             Console.WriteLine("Do You Want To Start Exam (Y | N)");
             string option = Console.ReadLine().ToLower();
 
-
-            for (int i = 0; i < Questions.Count; i++)
+            if (option != "y" || option == String.Empty)
             {
-                Console.Clear();
-                Console.WriteLine($"{Questions[i].QuestionType} Question\tMark{Questions[i].QuestionMark}\n");
-                Console.WriteLine($"{Questions[i].QuestionBody}?\n");
-                if (Questions[i].QuestionType == "MCQ")
+                Console.WriteLine("Exam not started.");
+                return;
+            }
+            if (Questions != null)
+            {
+
+                for (int i = 0; i < Questions.Count; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    Console.Clear();
+                    Console.WriteLine($"{Questions[i].QuestionType} Question\tMark: {Questions[i].QuestionMark}\n");
+                    Console.WriteLine($"{Questions[i].QuestionBody}?\n");
+
+                    int answer = 1;
+                    bool validAnswer = false;
+
+                    if (Questions[i].QuestionType == "MCQ")
                     {
-                        Console.WriteLine($"{j + 1}-{Questions[i].QuestionAnswers[j]}");
-                    }
-                    Console.WriteLine("Please Enter The Answer Id");
-                    int answer = int.Parse(Console.ReadLine());
-                    for (int j = 0; j < Questions.Count; j++)
-                    {
-                        for (int k = 0; k < 3; k++)
+                       
+                        for (int j = 0; j < 3; j++)
+                        {                       
+                            Console.WriteLine($"{j + 1} - {Questions[i].QuestionAnswers[j].AnswerText}");
+                        }
+
+                        while (!validAnswer)
                         {
-                            if (Questions[j].QuestionAnswers[k].AnswerId == answer)
+                            Console.WriteLine("Please Enter The Answer Id (1-3): ");
+                            validAnswer = int.TryParse(Console.ReadLine(), out answer) && answer >= 1 && answer <= 3;
+                            if (!validAnswer)
                             {
-                                UserAnswer.Add(Questions[j].QuestionAnswers[k].AnswerText);
-                                break;
+                                Console.WriteLine("Invalid input. Please enter a valid Answer Id (1-3).");
                             }
                         }
 
-                    }
+                        UserAnswer.Add(Questions[i].QuestionAnswers[answer - 1].AnswerText);
 
-                    if (Questions[i].EvaluteAnswer(answer))
-                    {
-                        Grade += Questions[i].QuestionMark;
-                    }
-
-                }
-                else
-                {
-                    Console.WriteLine("1-True");
-                    Console.WriteLine("2-False");
-                    Console.WriteLine("Please Enter The Answer Id (1 For True | 2 For False)");
-                    int answer = int.Parse(Console.ReadLine());
-                    for (int j = 0; j < Questions.Count; j++)
-                    {
-                        if (Questions[j].QuestionAnswers[j].AnswerId == answer)
+                        if (Questions[i].EvaluteAnswer(answer))
                         {
-                            UserAnswer.Add(Questions[j].QuestionAnswers[j].AnswerText);
-                            break;
+                            Grade += Questions[i].QuestionMark;
                         }
                     }
-                    if (Questions[i].EvaluteAnswer(answer))
+                    else
                     {
-                        Grade += Questions[i].QuestionMark;
+                        while (!validAnswer)
+                        {
+                            Console.WriteLine("1 - True");
+                            Console.WriteLine("2 - False");
+                            Console.WriteLine("Please Enter The Answer Id (1 For True | 2 For False): ");
+                            validAnswer = int.TryParse(Console.ReadLine(), out answer) && (answer == 1 || answer == 2);
+                            if (!validAnswer)
+                            {
+                                Console.WriteLine("Invalid input. Please enter 1 for True or 2 for False.");
+                            }
+                        }
+
+                        UserAnswer.Add(Questions[i].QuestionAnswers[answer - 1].AnswerText);
+
+                        if (Questions[i].EvaluteAnswer(answer))
+                        {
+                            Grade += Questions[i].QuestionMark;
+                        }
                     }
                 }
             }
+
             sw.Stop();
             TimeSpan timer = sw.Elapsed;
             UserExamTime = timer;
