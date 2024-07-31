@@ -62,33 +62,62 @@ namespace OOP_Exam.QuestionFactory
         public static McqQuestion CreateMcqQuestion()
         {
             Console.WriteLine("MCQ Question");
-            Console.Write("Enter Question Body: ");
-            string body = Console.ReadLine();
 
-            Console.Write("Enter Question Mark: ");
-            double mark = double.Parse(Console.ReadLine());
+            string? body;
+            do
+            {
+                Console.Write("Enter Question Body: ");
+                body = Console.ReadLine();
+                if (string.IsNullOrEmpty(body))
+                {
+                    Console.WriteLine("Question body cannot be empty. Please enter a valid question body.");
+                }
+            } while (string.IsNullOrEmpty(body));
+
+            double mark;
+            while (true)
+            {
+                Console.Write("Enter Question Mark: ");
+                if (double.TryParse(Console.ReadLine(), out mark) && mark >= 0)
+                {
+                    break;
+                }
+                Console.WriteLine("Please enter a valid positive number for the question mark.");
+            }
 
             var answers = new List<Answer>();
 
             Console.WriteLine("Choices Of Question: ");
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine($"Please Enter Choice Number {i + 1}");
-                string answerText = Console.ReadLine();
+                string? answerText;
+                do
+                {
+                    Console.WriteLine($"Please Enter Choice Number {i + 1}:");
+                    answerText = Console.ReadLine();
+                    if (string.IsNullOrEmpty(answerText))
+                    {
+                        Console.WriteLine("Choice cannot be empty. Please enter a valid choice.");
+                    }
+                } while (string.IsNullOrEmpty(answerText));
+
                 answers.Add(new Answer(i + 1, answerText));
             }
-            Console.WriteLine("Enter the right Answer Id: ");
-            int correctAnswerId = int.Parse(Console.ReadLine());
 
-            Answer correctAnswer = null;
-            foreach (var answer in answers)
+            int correctAnswerId;
+            while (true)
             {
-                if (answer.AnswerId == correctAnswerId)
+                Console.Write("Enter the right Answer Id: ");
+                if (int.TryParse(Console.ReadLine(), out correctAnswerId) && correctAnswerId >= 1 && correctAnswerId <= 3)
                 {
-                    correctAnswer = answer;
                     break;
                 }
+                Console.WriteLine("Please enter a valid Answer Id (1-3).");
             }
+
+            Answer correctAnswer = answers.FirstOrDefault(a => a.AnswerId == correctAnswerId)
+                                   ?? throw new ArgumentException("Correct answer not found in provided answers.");
+
             return new McqQuestion(body, mark, answers, correctAnswer);
 
         }
