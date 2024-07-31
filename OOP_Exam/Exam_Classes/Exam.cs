@@ -51,7 +51,14 @@ namespace OOP_Exam.Exam_Classes
         }
         public void AddQuestion(Question question)
         {
-
+            if (questions?.Count < NumberOfQuestion)
+            {
+                questions.Add(question);
+            }
+            else
+            {
+                throw new InvalidOperationException("Cannot add more questions than the specified number.");
+            }
         }
 
         #endregion
