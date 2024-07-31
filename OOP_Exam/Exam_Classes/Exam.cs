@@ -1,4 +1,5 @@
-﻿using OOP_Exam.Question_Classes;
+﻿using Microsoft.VisualBasic.FileIO;
+using OOP_Exam.Question_Classes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -75,9 +76,22 @@ namespace OOP_Exam.Exam_Classes
             sw.Start();
             Console.Clear();
             Console.WriteLine("Do You Want To Start Exam (Y | N)");
-            string option = Console.ReadLine().ToLower();
+            string option;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Do You Want To Start Exam (Y | N)");
+                option = Console.ReadLine().ToLower();
 
-            if (option != "y" || option == String.Empty)
+                if (option != "y" && option != "n")
+                {
+                    Console.WriteLine("Invalid input. Please enter 'Y' to start the exam or 'N' to cancel.");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                }
+            } while (option != "y" && option != "n");
+
+            if (option == "n")
             {
                 Console.WriteLine("Exam not started.");
                 return;
