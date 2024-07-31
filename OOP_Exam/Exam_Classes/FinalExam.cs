@@ -24,9 +24,7 @@ namespace OOP_Exam.Exam_Classes
                 {
                     Console.WriteLine($"Question {i + 1} : {Questions[i].QuestionBody}");
                     Console.WriteLine($"Your Answer => {UserAnswer[i]}");
-
-                    Console.WriteLine($"Right Answer => {Questions[i].CorrectAnswers}");
-                    
+                    Console.WriteLine($"Right Answer => {Questions[i].CorrectAnswers}");         
                     marks += Questions[i].QuestionMark;
                 }
                 Console.WriteLine($"Your Grade is {Grade} out of {marks}");

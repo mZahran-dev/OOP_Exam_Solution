@@ -22,6 +22,7 @@ namespace OOP_Exam
         }
         static void Main(string[] args)
         {
+            #region Subject initialize
             bool flag = false;
             string? subjectName;
             Subject? subject = null;
@@ -48,8 +49,10 @@ namespace OOP_Exam
                 }
 
             } while (!flag);
+            #endregion
 
 
+            #region Exam initialize
             Console.Clear();
             int examType = GetValidInput("Enter The Type of Exam (1 For Practical | 2 For Final)", x => x == 1 || x == 2);
             int examTime = GetValidInput("Enter the time for exam (30 min to 180 min)", x => x >= 30 && x <= 180);
@@ -91,7 +94,8 @@ namespace OOP_Exam
                 subject?.CreateExam(finalExam);
                 finalExam.SolveExam();
                 finalExam.ShowExam();
-            }
+            } 
+            #endregion
 
 
         }
