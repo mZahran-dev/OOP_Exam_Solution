@@ -22,7 +22,7 @@ namespace OOP_Exam.Exam_Classes
             {
                 for (int i = 0; i < Questions.Count; i++)
                 {
-                    Console.WriteLine($"Right Answer for Question {i + 1} => {Questions[i].QuestionAnswers[i]}");
+                    Console.WriteLine($"Right Answer for Question {i + 1} => {Questions[i].CorrectAnswers}");
                     marks += Questions[i].QuestionMark;
                 }
                 Console.WriteLine($"Your Grade is {Grade} out of {marks}");
