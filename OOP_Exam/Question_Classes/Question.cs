@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_Exam.Question_Classes
 {
-    internal abstract class Question
+    internal class Question
     {
         #region Properties
         private string? questionType;
